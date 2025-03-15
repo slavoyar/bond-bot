@@ -1,1589 +1,1314 @@
 [
-    {
-        "id": "28606b22c900424b",
-        "type": "tab",
-        "label": "RegisterChat",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "a36acabe523d6275",
-        "type": "tab",
-        "label": "RemoveChat",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "7143cba4a0672e07",
-        "type": "tab",
-        "label": "DailyBonds",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "8c7b4935ee6b7e06",
-        "type": "tab",
-        "label": "Send most profit bonds",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "38c010bd978ffb8e",
-        "type": "subflow",
-        "name": "getChatId",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 260,
-                "y": 140,
-                "wires": [
-                    {
-                        "id": "5f37e95021d64afc"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 600,
-                "y": 140,
-                "wires": [
-                    {
-                        "id": "5f37e95021d64afc",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "c2e93a95ad357f98",
-        "type": "subflow",
-        "name": "getChatIds",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 200,
-                "y": 240,
-                "wires": [
-                    {
-                        "id": "1c92178b11f3adaa"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 1040,
-                "y": 240,
-                "wires": [
-                    {
-                        "id": "6ee705c1bcc0eaad",
-                        "port": 0
-                    },
-                    {
-                        "id": "59bf345dfc31653c",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "cac2a2fceee6d2c3",
-        "type": "subflow",
-        "name": "saveChats",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 140,
-                "y": 140,
-                "wires": [
-                    {
-                        "id": "f435a9b75d35c5ff"
-                    }
-                ]
-            }
-        ],
-        "out": [],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "33c57e12000df2b1",
-        "type": "subflow",
-        "name": "callGrpcService",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 40,
-                "y": 100,
-                "wires": [
-                    {
-                        "id": "7f25ea349a57719a"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 600,
-                "y": 100,
-                "wires": [
-                    {
-                        "id": "d0a23f9a277216a5",
-                        "port": 0
-                    },
-                    {
-                        "id": "adab2edf41b174c4",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "6f595e5475b772e5",
-        "type": "telegram bot",
-        "botname": "TinkoffBondBot",
-        "usernames": "",
-        "chatids": "",
-        "baseapiurl": "",
-        "testenvironment": false,
-        "updatemode": "polling",
-        "pollinterval": "1000",
-        "usesocks": false,
-        "sockshost": "",
-        "socksprotocol": "socks5",
-        "socksport": 6667,
-        "socksusername": "anonymous",
-        "sockspassword": "",
-        "bothost": "",
-        "botpath": "",
-        "localbothost": "0.0.0.0",
-        "localbotport": 8443,
-        "publicbotport": 8443,
-        "privatekey": "",
-        "certificate": "",
-        "useselfsignedcertificate": false,
-        "sslterminated": false,
-        "verboselogging": false
-    },
-    {
-        "id": "5f37e95021d64afc",
-        "type": "function",
-        "z": "38c010bd978ffb8e",
-        "name": "getChatId",
-        "func": "\nreturn {payload: msg.payload.chatId, topic: 'chatId'};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
+  {
+    "id": "28606b22c900424b",
+    "type": "tab",
+    "label": "RegisterChat",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "a36acabe523d6275",
+    "type": "tab",
+    "label": "RemoveChat",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "7143cba4a0672e07",
+    "type": "tab",
+    "label": "DailyBonds",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "8c7b4935ee6b7e06",
+    "type": "tab",
+    "label": "Send most profit bonds",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "38c010bd978ffb8e",
+    "type": "subflow",
+    "name": "getChatId",
+    "info": "",
+    "category": "",
+    "in": [
+      {
+        "x": 260,
         "y": 140,
         "wires": [
-            []
+          {
+            "id": "5f37e95021d64afc"
+          }
         ]
-    },
-    {
-        "id": "1c92178b11f3adaa",
-        "type": "function",
-        "z": "c2e93a95ad357f98",
-        "name": "function 1",
-        "func": "\nreturn {};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 240,
-        "wires": [
-            [
-                "330b2b05b0a9797b"
-            ]
-        ]
-    },
-    {
-        "id": "dc0342bede30420c",
-        "type": "json",
-        "z": "c2e93a95ad357f98",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 690,
-        "y": 240,
-        "wires": [
-            [
-                "59bf345dfc31653c"
-            ]
-        ]
-    },
-    {
-        "id": "330b2b05b0a9797b",
-        "type": "file in",
-        "z": "c2e93a95ad357f98",
-        "name": "chatFile",
-        "filename": "/root/.node-red/chats.json",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 520,
-        "y": 240,
-        "wires": [
-            [
-                "dc0342bede30420c"
-            ]
-        ]
-    },
-    {
-        "id": "99693ee3f62be2f1",
-        "type": "catch",
-        "z": "c2e93a95ad357f98",
-        "name": "",
-        "scope": null,
-        "uncaught": false,
-        "x": 400,
-        "y": 320,
-        "wires": [
-            [
-                "6ee705c1bcc0eaad"
-            ]
-        ]
-    },
-    {
-        "id": "59bf345dfc31653c",
-        "type": "function",
-        "z": "c2e93a95ad357f98",
-        "name": "createPayload",
-        "func": "\nreturn {payload: msg.payload, topic: 'chatIds'};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 880,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6ee705c1bcc0eaad",
-        "type": "function",
-        "z": "c2e93a95ad357f98",
-        "name": "function 3",
-        "func": "\nreturn {payload: [], topic: 'chatIds'};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 860,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f435a9b75d35c5ff",
-        "type": "json",
-        "z": "cac2a2fceee6d2c3",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 290,
+      }
+    ],
+    "out": [
+      {
+        "x": 600,
         "y": 140,
         "wires": [
-            [
-                "81f4636a51848867"
-            ]
+          {
+            "id": "5f37e95021d64afc",
+            "port": 0
+          }
         ]
-    },
-    {
-        "id": "81f4636a51848867",
-        "type": "file",
-        "z": "cac2a2fceee6d2c3",
-        "name": "chatFile",
-        "filename": "/root/.node-red/chats.json",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "true",
-        "encoding": "none",
-        "x": 480,
+      }
+    ],
+    "env": [],
+    "meta": {},
+    "color": "#DDAA99"
+  },
+  {
+    "id": "c2e93a95ad357f98",
+    "type": "subflow",
+    "name": "getChatIds",
+    "info": "",
+    "category": "",
+    "in": [
+      {
+        "x": 200,
+        "y": 240,
+        "wires": [
+          {
+            "id": "1c92178b11f3adaa"
+          }
+        ]
+      }
+    ],
+    "out": [
+      {
+        "x": 1040,
+        "y": 240,
+        "wires": [
+          {
+            "id": "6ee705c1bcc0eaad",
+            "port": 0
+          },
+          {
+            "id": "59bf345dfc31653c",
+            "port": 0
+          }
+        ]
+      }
+    ],
+    "env": [],
+    "meta": {},
+    "color": "#DDAA99"
+  },
+  {
+    "id": "cac2a2fceee6d2c3",
+    "type": "subflow",
+    "name": "saveChats",
+    "info": "",
+    "category": "",
+    "in": [
+      {
+        "x": 140,
         "y": 140,
         "wires": [
-            []
+          {
+            "id": "f435a9b75d35c5ff"
+          }
         ]
-    },
-    {
-        "id": "adab2edf41b174c4",
-        "type": "function",
-        "z": "33c57e12000df2b1",
-        "name": "callInstrumentService",
-        "func": "const client = global.get('InstrumentsServiceClient')\nconst metadata = global.get('TinkoffMetadata')\n\nasync function callGrpcService() {\n    const index = msg.parts ? `[${msg.parts.index}/${msg.parts.count}] `: ''\n    console.log(`${index}Start request [${msg.method}]`)\n    return new Promise((resolve, reject) => {\n        client[msg.method](msg.payload, metadata, (error, response) => {\n            if (error) {\n                node.error(`${msg.method} failed with error ${error}`)\n                reject(error);\n            } else {\n                resolve(response);\n            }\n        });\n    });\n}\n\nreturn callGrpcService()\n    .then(response => {\n        msg.payload = response;\n        return msg;\n    })\n    .catch(error => {\n        msg.payload = { error: error.message };\n        return msg;\n    });\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst grpc = global.get('grpc');\nconst protoLoader = global.get('proto-loader');\n\nif (global.get('InstrumentsServiceClient')) {\n    return\n}\n\nconst packageDefinition = protoLoader.loadSync('/root/.node-red/contracts/instruments.proto', {\n    keepCase: true,\n    longs: String,\n    enums: String,\n    defaults: true,\n    oneofs: true\n});\n\nconst proto = grpc.loadPackageDefinition(packageDefinition).tinkoff.public.invest.api.contract.v1;\n\n// gRPC client setup\nconst client = new proto.InstrumentsService('invest-public-api.tinkoff.ru:443', grpc.credentials.createSsl());\n\nconst metadata = new grpc.Metadata();\nmetadata.add('authorization', 'Bearer ' + env.get(\"TINKOFF_TOKEN\") );\n\nglobal.set('InstrumentsServiceClient', client)\nglobal.set('TinkoffMetadata', metadata)",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d0a23f9a277216a5",
-        "type": "function",
-        "z": "33c57e12000df2b1",
-        "name": "callMarketDataService",
-        "func": "const client = global.get('MarketDataServiceClient')\nconst metadata = global.get('TinkoffMetadata')\n\nasync function callGrpcService() {\n    const index = msg.parts ? `[${msg.parts.index}/${msg.parts.count}] `: ''\n    console.log(`${index}Start request [${msg.method}]`)\n    return new Promise((resolve, reject) => {\n        client[msg.method](msg.payload, metadata, (error, response) => {\n            if (error) {\n                node.error(`${msg.method} failed with error ${error}`)\n                reject(error);\n            } else {\n                resolve(response);\n            }\n        });\n    });\n}\n\nreturn callGrpcService()\n    .then(response => {\n        msg.payload = response;\n        return msg;\n    })\n    .catch(error => {\n        msg.payload = { error: error.message };\n        return msg;\n    });\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst grpc = global.get('grpc');\nconst protoLoader = global.get('proto-loader');\n\nif (global.get('MarketDataService')) {\n    return\n}\n\nconst packageDefinition = protoLoader.loadSync('/root/.node-red/contracts/marketdata.proto', {\n    keepCase: true,\n    longs: String,\n    enums: String,\n    defaults: true,\n    oneofs: true\n});\n\nconst proto = grpc.loadPackageDefinition(packageDefinition).tinkoff.public.invest.api.contract.v1;\n\n// gRPC client setup\nconst client = new proto.MarketDataService('invest-public-api.tinkoff.ru:443', grpc.credentials.createSsl());\n\nconst metadata = new grpc.Metadata();\nmetadata.add('authorization', 'Bearer ' + env.get(\"TINKOFF_TOKEN\") );\n\nglobal.set('MarketDataServiceClient', client)\nglobal.set('TinkoffMetadata', metadata)",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7f25ea349a57719a",
-        "type": "switch",
-        "z": "33c57e12000df2b1",
-        "name": "serviceCase",
-        "property": "service",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "InstrumentsService",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "MarketDataService",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 170,
+      }
+    ],
+    "out": [],
+    "env": [],
+    "meta": {},
+    "color": "#DDAA99"
+  },
+  {
+    "id": "33c57e12000df2b1",
+    "type": "subflow",
+    "name": "callGrpcService",
+    "info": "",
+    "category": "",
+    "in": [
+      {
+        "x": 40,
         "y": 100,
         "wires": [
-            [
-                "adab2edf41b174c4"
-            ],
-            [
-                "d0a23f9a277216a5"
-            ]
+          {
+            "id": "7f25ea349a57719a"
+          }
         ]
-    },
-    {
-        "id": "7210b7a8cd2b17b0",
-        "type": "telegram command",
-        "z": "28606b22c900424b",
-        "name": "",
-        "command": "/start",
-        "description": "",
-        "registercommand": false,
-        "language": "",
-        "scope": "default",
-        "bot": "6f595e5475b772e5",
-        "strict": false,
-        "hasresponse": true,
-        "useregex": false,
-        "removeregexcommand": false,
-        "outputs": 2,
-        "x": 130,
-        "y": 340,
-        "wires": [
-            [
-                "274ba46870f8361b",
-                "a6cbe263d03e26cb"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "fca2cd1eac51c2dd",
-        "type": "telegram sender",
-        "z": "28606b22c900424b",
-        "name": "TinkoffBond",
-        "bot": "6f595e5475b772e5",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 890,
-        "y": 340,
-        "wires": [
-            [
-                "3e6ecf4b0e739425"
-            ]
-        ]
-    },
-    {
-        "id": "da6c42d57b0c4466",
-        "type": "function",
-        "z": "28606b22c900424b",
-        "name": "makeTgPayload",
-        "func": "const chatId = msg.payload.chatId;\nconst oldArray = msg.payload.chatIds;\nlet content = \"Вы начнете получать рассылку по облигациям.\"\n\nreturn {\n    payload: {\n            type: \"message\",\n            content,\n            chatId\n        }\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 340,
-        "wires": [
-            [
-                "fca2cd1eac51c2dd"
-            ]
-        ]
-    },
-    {
-        "id": "274ba46870f8361b",
-        "type": "subflow:38c010bd978ffb8e",
-        "z": "28606b22c900424b",
-        "name": "",
-        "x": 320,
-        "y": 340,
-        "wires": [
-            [
-                "51b04e47473c50bb"
-            ]
-        ]
-    },
-    {
-        "id": "a6cbe263d03e26cb",
-        "type": "subflow:c2e93a95ad357f98",
-        "z": "28606b22c900424b",
-        "name": "",
-        "x": 320,
-        "y": 400,
-        "wires": [
-            [
-                "51b04e47473c50bb"
-            ]
-        ]
-    },
-    {
-        "id": "51b04e47473c50bb",
-        "type": "join",
-        "z": "28606b22c900424b",
-        "name": "",
-        "mode": "custom",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "useparts": false,
-        "accumulate": true,
-        "timeout": "",
-        "count": "2",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 490,
-        "y": 340,
-        "wires": [
-            [
-                "da6c42d57b0c4466",
-                "b9e74455274ef47a"
-            ]
-        ]
-    },
-    {
-        "id": "b9e74455274ef47a",
-        "type": "function",
-        "z": "28606b22c900424b",
-        "name": "addNewChat",
-        "func": "const chatId = msg.payload.chatId;\nconst oldArray = msg.payload.chatIds;\n\nconsole.log(chatId, oldArray)\nif (oldArray.includes(chatId)) {\n    return {payload: oldArray, topic: \"chatIds\"};\n}\n\nreturn {payload: [...oldArray, chatId], topic: \"chatIds\"};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 670,
-        "y": 420,
-        "wires": [
-            [
-                "cc9e39f1b5bad63e"
-            ]
-        ]
-    },
-    {
-        "id": "aa988f257ffe5d12",
-        "type": "subflow:cac2a2fceee6d2c3",
-        "z": "28606b22c900424b",
-        "name": "",
-        "x": 1270,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "cc9e39f1b5bad63e",
-        "type": "join",
-        "z": "28606b22c900424b",
-        "name": "",
-        "mode": "custom",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "useparts": false,
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 890,
-        "y": 420,
-        "wires": [
-            [
-                "36ecf8663d648f6f"
-            ]
-        ]
-    },
-    {
-        "id": "3e6ecf4b0e739425",
-        "type": "function",
-        "z": "28606b22c900424b",
-        "name": "function 2",
-        "func": "console.log('Telegram sent the message')\nreturn {complete: true};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1080,
-        "y": 340,
-        "wires": [
-            [
-                "cc9e39f1b5bad63e"
-            ]
-        ]
-    },
-    {
-        "id": "36ecf8663d648f6f",
-        "type": "function",
-        "z": "28606b22c900424b",
-        "name": "chatIdsToPayload",
-        "func": "return {payload: msg.payload.chatIds};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1070,
-        "y": 420,
-        "wires": [
-            [
-                "aa988f257ffe5d12"
-            ]
-        ]
-    },
-    {
-        "id": "4d8c1e8c62f66594",
-        "type": "telegram command",
-        "z": "a36acabe523d6275",
-        "name": "",
-        "command": "/stop",
-        "description": "",
-        "registercommand": false,
-        "language": "",
-        "scope": "default",
-        "bot": "6f595e5475b772e5",
-        "strict": false,
-        "hasresponse": true,
-        "useregex": false,
-        "removeregexcommand": false,
-        "outputs": 2,
-        "x": 90,
-        "y": 200,
-        "wires": [
-            [
-                "4769fee43872ebac",
-                "33e23232b1685030"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "86cf99070ec7dd83",
-        "type": "telegram sender",
-        "z": "a36acabe523d6275",
-        "name": "TinkoffBond",
-        "bot": "6f595e5475b772e5",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 850,
-        "y": 200,
-        "wires": [
-            [
-                "184eac412135c22b"
-            ]
-        ]
-    },
-    {
-        "id": "81f364c7a4109301",
-        "type": "function",
-        "z": "a36acabe523d6275",
-        "name": "makeTgPayload",
-        "func": "const chatId = msg.payload.chatId;\nlet content = \"Вы перестанете получать рассылку по облигациям.\"\n\nreturn {\n    payload: {\n            type: \"message\",\n            content,\n            chatId\n        }\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 640,
-        "y": 200,
-        "wires": [
-            [
-                "86cf99070ec7dd83"
-            ]
-        ]
-    },
-    {
-        "id": "4769fee43872ebac",
-        "type": "subflow:38c010bd978ffb8e",
-        "z": "a36acabe523d6275",
-        "name": "",
-        "x": 280,
-        "y": 200,
-        "wires": [
-            [
-                "f435a18d9fd60807"
-            ]
-        ]
-    },
-    {
-        "id": "33e23232b1685030",
-        "type": "subflow:c2e93a95ad357f98",
-        "z": "a36acabe523d6275",
-        "name": "",
-        "x": 280,
-        "y": 260,
-        "wires": [
-            [
-                "f435a18d9fd60807"
-            ]
-        ]
-    },
-    {
-        "id": "f435a18d9fd60807",
-        "type": "join",
-        "z": "a36acabe523d6275",
-        "name": "",
-        "mode": "custom",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "useparts": false,
-        "accumulate": true,
-        "timeout": "",
-        "count": "2",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 450,
-        "y": 200,
-        "wires": [
-            [
-                "81f364c7a4109301",
-                "c2711ee87a6d385f"
-            ]
-        ]
-    },
-    {
-        "id": "c2711ee87a6d385f",
-        "type": "function",
-        "z": "a36acabe523d6275",
-        "name": "removeChat",
-        "func": "const chatId = msg.payload.chatId;\nconst oldArray = msg.payload.chatIds;\n\nreturn {payload: oldArray.filter((item) => item !== chatId), topic: \"chatIds\"};\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 280,
-        "wires": [
-            [
-                "03a21a523092095b"
-            ]
-        ]
-    },
-    {
-        "id": "11f0f375183d6815",
-        "type": "subflow:cac2a2fceee6d2c3",
-        "z": "a36acabe523d6275",
-        "name": "",
-        "x": 1270,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "03a21a523092095b",
-        "type": "join",
-        "z": "a36acabe523d6275",
-        "name": "",
-        "mode": "custom",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "useparts": false,
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 850,
-        "y": 280,
-        "wires": [
-            [
-                "3ec1e61488cc707c"
-            ]
-        ]
-    },
-    {
-        "id": "184eac412135c22b",
-        "type": "function",
-        "z": "a36acabe523d6275",
-        "name": "function 5",
-        "func": "console.log('Telegram sent the message')\nreturn {complete: true};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1040,
-        "y": 200,
-        "wires": [
-            [
-                "03a21a523092095b"
-            ]
-        ]
-    },
-    {
-        "id": "3ec1e61488cc707c",
-        "type": "function",
-        "z": "a36acabe523d6275",
-        "name": "chatIdsToPayload",
-        "func": "return {payload: msg.payload.chatIds};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1050,
-        "y": 280,
-        "wires": [
-            [
-                "11f0f375183d6815"
-            ]
-        ]
-    },
-    {
-        "id": "f66bdc62c8936781",
-        "type": "inject",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "43200",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 80,
-        "wires": [
-            [
-                "4ef1ed0a66bfe10e"
-            ]
-        ]
-    },
-    {
-        "id": "b9c1066356b59ba2",
-        "type": "function",
-        "z": "7143cba4a0672e07",
-        "name": "filterBonds",
-        "func": "const nonQualifiedInvestorsBonds = msg.payload.instruments.filter(\n    (item) => !item.for_qual_investor_flag && ! item.amortization_flag && !item.floating_coupon_flag\n);\nconsole.log('bonds filtered', nonQualifiedInvestorsBonds.length)\n\nreturn {payload: nonQualifiedInvestorsBonds};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 160,
-        "wires": [
-            [
-                "7bd38c822a4c9081",
-                "a2ce32be7171fa9c",
-                "ba2658375b3cbbe0"
-            ]
-        ]
-    },
-    {
-        "id": "4ef1ed0a66bfe10e",
-        "type": "function",
-        "z": "7143cba4a0672e07",
-        "name": "prepareBondRequest",
-        "func": "\nreturn {\n    payload: {\n        instrumentStatus: \"INSTRUMENT_STATUS_UNSPECIFIED\"\n    },\n    method: 'Bonds',\n    service: 'InstrumentsService'\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 80,
-        "wires": [
-            [
-                "d2839f31ed4cba51"
-            ]
-        ]
-    },
-    {
-        "id": "a2ce32be7171fa9c",
-        "type": "function",
-        "z": "7143cba4a0672e07",
-        "name": "prepareCouponsRequest",
-        "func": "// Function to convert JavaScript Date to gRPC Timestamp\nconst toGrpcTimestamp = (date) => {\n    return {\n        seconds: Math.floor(date.getTime() / 1000),\n        nanos: (date.getTime() % 1000) * 1e6\n    };\n};\n\n// Get today's date and +1 year\nconst today = new Date();\n\nconst figis = msg.payload.map((item) => {\n    return {\n        figi: item.figi,\n        topic: item.figi,\n        from: toGrpcTimestamp(today),\n        to: item.maturity_date\n    }\n})\n\nreturn {\n    service: 'InstrumentsService',\n    method: 'GetBondCoupons',\n    payload: figis\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 240,
-        "wires": [
-            [
-                "98b3014396261c41"
-            ]
-        ]
-    },
-    {
-        "id": "d2839f31ed4cba51",
-        "type": "subflow:33c57e12000df2b1",
-        "z": "7143cba4a0672e07",
-        "name": "getBonds",
-        "x": 580,
-        "y": 80,
-        "wires": [
-            [
-                "b9c1066356b59ba2"
-            ]
-        ]
-    },
-    {
-        "id": "a738c6e30154fc39",
-        "type": "subflow:33c57e12000df2b1",
-        "z": "7143cba4a0672e07",
-        "name": "getCoupons",
-        "x": 370,
-        "y": 320,
-        "wires": [
-            [
-                "656a978a46d56ec0"
-            ]
-        ]
-    },
-    {
-        "id": "74e7f7f57e6086f3",
-        "type": "function",
-        "z": "7143cba4a0672e07",
-        "name": "couponsPerBond",
-        "func": "const couponsPerBond = {}\n\nmsg.payload.forEach((item) => {\n    item.events?.forEach((event) => {\n        if (couponsPerBond[event.figi]) {\n            couponsPerBond[event.figi].push(event)\n        } else {\n            couponsPerBond[event.figi] = [event]\n        }\n    });\n});\n\nreturn {payload: couponsPerBond};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 320,
-        "wires": [
-            [
-                "13aff816d2eb58d5"
-            ]
-        ]
-    },
-    {
-        "id": "98b3014396261c41",
-        "type": "split",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": "1",
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "property": "payload",
-        "x": 630,
-        "y": 240,
-        "wires": [
-            [
-                "0b9a30487c42b9f3"
-            ]
-        ]
-    },
-    {
-        "id": "656a978a46d56ec0",
-        "type": "join",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "mode": "auto",
-        "build": "merged",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "useparts": true,
-        "accumulate": true,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 550,
-        "y": 320,
-        "wires": [
-            [
-                "74e7f7f57e6086f3"
-            ]
-        ]
-    },
-    {
-        "id": "0b9a30487c42b9f3",
-        "type": "delay",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "50",
-        "nbRateUnits": "1",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 860,
-        "y": 240,
-        "wires": [
-            [
-                "a738c6e30154fc39"
-            ]
-        ]
-    },
-    {
-        "id": "7bd38c822a4c9081",
-        "type": "json",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 410,
-        "y": 160,
-        "wires": [
-            [
-                "b92410df66fa8383"
-            ]
-        ]
-    },
-    {
-        "id": "b92410df66fa8383",
-        "type": "file",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "filename": "/root/.node-red/bonds.json",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "true",
-        "encoding": "none",
-        "x": 650,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "13aff816d2eb58d5",
-        "type": "json",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 930,
-        "y": 320,
-        "wires": [
-            [
-                "554154f4fd809416"
-            ]
-        ]
-    },
-    {
-        "id": "554154f4fd809416",
-        "type": "file",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "filename": "/root/.node-red/coupons.json",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "true",
-        "encoding": "none",
-        "x": 1140,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d9cfda6f9ae0ade5",
-        "type": "json",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 970,
-        "y": 580,
-        "wires": [
-            [
-                "d025dc4184c561bf"
-            ]
-        ]
-    },
-    {
-        "id": "d025dc4184c561bf",
-        "type": "file",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "filename": "/root/.node-red/prices.json",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "true",
-        "encoding": "none",
-        "x": 1190,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1b9758a2e5afe9e2",
-        "type": "subflow:33c57e12000df2b1",
-        "z": "7143cba4a0672e07",
-        "name": "getPrices",
+      }
+    ],
+    "out": [
+      {
         "x": 600,
-        "y": 580,
+        "y": 100,
         "wires": [
-            [
-                "711e9a6415fbc34a"
-            ]
+          {
+            "id": "d0a23f9a277216a5",
+            "port": 0
+          },
+          {
+            "id": "adab2edf41b174c4",
+            "port": 0
+          }
         ]
-    },
-    {
-        "id": "ba2658375b3cbbe0",
-        "type": "function",
-        "z": "7143cba4a0672e07",
-        "name": "preparePricesRequest",
-        "func": "\nreturn {\n    service: 'MarketDataService',\n    method: 'GetLastPrices',\n    payload: {\n        instrument_id: msg.payload.map((item) => item.figi)\n    }\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 580,
-        "wires": [
-            [
-                "1b9758a2e5afe9e2"
-            ]
-        ]
-    },
-    {
-        "id": "614df7cac23e946e",
-        "type": "inject",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1800",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 420,
-        "wires": [
-            [
-                "2a7814fd85324c1a"
-            ]
-        ]
-    },
-    {
-        "id": "947253fe20e6e588",
-        "type": "file in",
-        "z": "7143cba4a0672e07",
-        "name": "getBonds",
-        "filename": "/root/.node-red/bonds.json",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 120,
-        "y": 580,
-        "wires": [
-            [
-                "27a3187942435d08"
-            ]
-        ]
-    },
-    {
-        "id": "27a3187942435d08",
-        "type": "json",
-        "z": "7143cba4a0672e07",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 130,
-        "y": 660,
-        "wires": [
-            [
-                "ba2658375b3cbbe0"
-            ]
-        ]
-    },
-    {
-        "id": "2a7814fd85324c1a",
-        "type": "function",
-        "z": "7143cba4a0672e07",
-        "name": "emptyMessage",
-        "func": "\nreturn {};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 120,
-        "y": 500,
-        "wires": [
-            [
-                "947253fe20e6e588"
-            ]
-        ]
-    },
-    {
-        "id": "711e9a6415fbc34a",
-        "type": "function",
-        "z": "7143cba4a0672e07",
-        "name": "createPriceMap",
-        "func": "\nreturn { \n    payload: msg.payload.last_prices.reduce((acc, price) => {\n        if (acc[price.figi]) {\n            return acc\n        }\n        acc[price.figi] = price\n        return acc;\n    }, {})\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 800,
-        "y": 580,
-        "wires": [
-            [
-                "d9cfda6f9ae0ade5"
-            ]
-        ]
-    },
-    {
-        "id": "8ba652c84c833d5d",
-        "type": "file in",
-        "z": "8c7b4935ee6b7e06",
-        "name": "getBonds",
-        "filename": "/root/.node-red/bonds.json",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 620,
-        "y": 280,
-        "wires": [
-            [
-                "a8ef9878feeb15a4"
-            ]
-        ]
-    },
-    {
-        "id": "fc7c272166da474a",
-        "type": "function",
-        "z": "8c7b4935ee6b7e06",
-        "name": "emptyMessage",
-        "func": "\nreturn {};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 300,
-        "wires": [
-            [
-                "8ba652c84c833d5d",
-                "da844d190656edd6",
-                "2e8d0607eb0bf0e4"
-            ]
-        ]
-    },
-    {
-        "id": "a8ef9878feeb15a4",
-        "type": "json",
-        "z": "8c7b4935ee6b7e06",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 810,
-        "y": 280,
-        "wires": [
-            [
-                "dc167f7f9fd965cd"
-            ]
-        ]
-    },
-    {
-        "id": "da844d190656edd6",
-        "type": "file in",
-        "z": "8c7b4935ee6b7e06",
-        "name": "getCoupons",
-        "filename": "/root/.node-red/coupons.json",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 630,
-        "y": 320,
-        "wires": [
-            [
-                "98ab8d1599e752da"
-            ]
-        ]
-    },
-    {
-        "id": "98ab8d1599e752da",
-        "type": "json",
-        "z": "8c7b4935ee6b7e06",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 810,
-        "y": 320,
-        "wires": [
-            [
-                "10bc59bc928d628d"
-            ]
-        ]
-    },
-    {
-        "id": "4af3574f8cdf932e",
-        "type": "join",
-        "z": "8c7b4935ee6b7e06",
-        "name": "",
-        "mode": "custom",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "useparts": false,
-        "accumulate": false,
-        "timeout": "",
-        "count": "4",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 1110,
-        "y": 320,
-        "wires": [
-            [
-                "54fb24d319a28b43"
-            ]
-        ]
-    },
-    {
-        "id": "dc167f7f9fd965cd",
-        "type": "function",
-        "z": "8c7b4935ee6b7e06",
-        "name": "function 4",
-        "func": "console.log('bonds loaded ', msg.payload.length)\nreturn {\n    payload: msg.payload,\n    topic: 'bonds'\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 960,
-        "y": 280,
-        "wires": [
-            [
-                "4af3574f8cdf932e"
-            ]
-        ]
-    },
-    {
-        "id": "10bc59bc928d628d",
-        "type": "function",
-        "z": "8c7b4935ee6b7e06",
-        "name": "function 6",
-        "func": "console.log('Coupons loaded')\nreturn {\n    payload: msg.payload,\n    topic: 'coupons'\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 960,
-        "y": 320,
-        "wires": [
-            [
-                "4af3574f8cdf932e"
-            ]
-        ]
-    },
-    {
-        "id": "e8a699bb11480c89",
-        "type": "telegram sender",
-        "z": "8c7b4935ee6b7e06",
-        "name": "",
-        "bot": "6f595e5475b772e5",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 850,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "54fb24d319a28b43",
-        "type": "function",
-        "z": "8c7b4935ee6b7e06",
-        "name": "prepareTgMessage",
-        "func": "const bonds = msg.payload.bonds;\nconst coupons = msg.payload.coupons;\nconst prices = msg.payload.prices;\nconst chatId = msg.payload.chatId;\n\nfunction convertToNumber(int64) {\n    if (!int64) {\n        return 0\n    }\n    const { low, high, unsigned } = int64.units ?? int64.seconds;\n    const nano = int64.nano ?? int64.nanos\n\n    // Combine 32-bit low and high into a single number\n    let num = low + high * 2 ** 32;\n\n    // Handle signed numbers if needed\n    if (!unsigned && high & (1 << 31)) {\n        num -= 2 ** 64; // Convert to negative if high bit is set\n    }\n\n    // Add nano part if needed (assuming it's a fraction)\n    return num + nano * 1e-9;\n}\n\nfunction secondsToDays(seconds) {\n    return seconds / 86400;\n}\n\nconst getBondsProfit = (bond) => {\n    const nominal = convertToNumber(bond.nominal)\n    const currentPrice = convertToNumber(prices[bond.figi].price) / 100 * nominal;\n    const couponsPrice = (coupons[bond.figi] ?? []).reduce((acc, value) => {\n        return acc + convertToNumber(value.pay_one_bond);\n    }, 0)\n    const currentTimeInSeconds = Math.floor(Date.now() / 1000);\n    const days = secondsToDays(convertToNumber(bond.maturity_date) - currentTimeInSeconds);\n    if (days < 30 || currentPrice === 0) {\n        return 0\n    }\n    const profit = (nominal - currentPrice + couponsPrice - convertToNumber(bond.aci_value)) / currentPrice / (days / 365);\n    \n    return profit > 0.4 ? 0 : profit\n}\n\nconst getRiskLetter = (level) => {\n    switch(level) {\n        case 0:\n            return 'C';\n        case 1:\n            return 'A';\n        case 2: \n            return 'B';\n        default:\n            return 'C'\n    }\n}\n\nconst profits = bonds.map((item, index) => {\n    const currentTimeInSeconds = Math.floor(Date.now() / 1000);\n    return { \n        ...item,\n        profit: getBondsProfit(item),\n        risk: getRiskLetter(item.risk_level),\n        price: convertToNumber(prices[item.figi].price) / 100 * convertToNumber(item.nominal),\n        months: secondsToDays(convertToNumber(item.maturity_date) - currentTimeInSeconds) / 365 * 12\n    }\n}).sort((a, b) => b.profit - a.profit)\n.reduce((acc, bond) => {\n    if (!acc[bond.risk]) {\n        acc[bond.risk] = [];\n    }\n    acc[bond.risk].push(bond);\n    return acc;\n}, {'A': [], 'B': [], 'C': []});;\n\nconst currencySymbols = { rub: \"₽\", cny: \"¥\", usd: \"$\" };\n\nlet content = ''\nfor (const [risk, bonds] of Object.entries(profits)) {\n    // Add Markdown header and emoji for risk level\n    const riskIcon = risk === \"A\" ? \"🏆\" : risk === \"B\" ? \"🔶\" : \"🔴\";\n    content += `${riskIcon} Рейтинг: ${risk}\\n\\n`;\n    const filteredBonds = risk !== 'A' ? bonds.filter(item => item.months <= 12) : bonds\n    for (let i = 0; i < Math.min(10, filteredBonds.length); i++) {\n        const bond = filteredBonds[i]\n        const currencySymbol = currencySymbols[bond.currency] || \"\";\n        const price = Math.round(bond.price * 100) / 100\n        const profit = Math.round(bond.profit * 10000) / 100\n        const months = Math.round(bond.months)\n        const link = `https://www.tbank.ru/invest/bonds/${bond.ticker}/`\n        content += `**${i + 1}. [${bond.name}](${link})** - ${price} ${currencySymbol} - **\\`${profit}%\\`** - ${months}м\\n`;\n    }\n\n    content += \"\\n\"; \n}\n\ncontent = content\n  .replace(/\\~/g, '\\\\~')\n  .replace(/\\>/g, '\\\\>')\n  .replace(/\\#/g, '\\\\#')\n  .replace(/\\+/g, '\\\\+')\n  .replace(/\\-/g, '\\\\-')\n  .replace(/\\=/g, '\\\\=')\n  .replace(/\\|/g, '\\\\|')\n  .replace(/\\{/g, '\\\\{')\n  .replace(/\\}/g, '\\\\}')\n  .replace(/\\./g, '\\\\.')\n  .replace(/\\!/g, '\\\\!')\n\nreturn {\n    payload: {\n        type: \"message\",\n        content: content,\n        chatId: chatId,\n        options: { \n            parse_mode: \"MarkdownV2\",\n            disable_web_page_preview: true\n        }\n    }\n};\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 540,
-        "wires": [
-            [
-                "e8a699bb11480c89"
-            ]
-        ]
-    },
-    {
-        "id": "29c146818911fd31",
-        "type": "telegram command",
-        "z": "8c7b4935ee6b7e06",
-        "name": "",
-        "command": "/bonds",
-        "description": "",
-        "registercommand": false,
-        "language": "",
-        "scope": "default",
-        "bot": "6f595e5475b772e5",
-        "strict": false,
-        "hasresponse": true,
-        "useregex": false,
-        "removeregexcommand": false,
-        "outputs": 2,
-        "x": 190,
-        "y": 300,
-        "wires": [
-            [
-                "fc7c272166da474a",
-                "4bc988375c895188"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "4bc988375c895188",
-        "type": "subflow:38c010bd978ffb8e",
-        "z": "8c7b4935ee6b7e06",
-        "name": "",
-        "x": 980,
-        "y": 160,
-        "wires": [
-            [
-                "4af3574f8cdf932e"
-            ]
-        ]
-    },
-    {
-        "id": "2e8d0607eb0bf0e4",
-        "type": "file in",
-        "z": "8c7b4935ee6b7e06",
-        "name": "getPrices",
-        "filename": "/root/.node-red/prices.json",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 620,
-        "y": 360,
-        "wires": [
-            [
-                "ce3d8d09b429bfd2"
-            ]
-        ]
-    },
-    {
-        "id": "ce3d8d09b429bfd2",
-        "type": "json",
-        "z": "8c7b4935ee6b7e06",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 810,
-        "y": 360,
-        "wires": [
-            [
-                "277d0f6fd291395f"
-            ]
-        ]
-    },
-    {
-        "id": "277d0f6fd291395f",
-        "type": "function",
-        "z": "8c7b4935ee6b7e06",
-        "name": "function 7",
-        "func": "console.log('Prices loaded')\nreturn {\n    payload: msg.payload,\n    topic: 'prices'\n};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 960,
-        "y": 360,
-        "wires": [
-            [
-                "4af3574f8cdf932e"
-            ]
-        ]
-    }
+      }
+    ],
+    "env": [],
+    "meta": {},
+    "color": "#DDAA99"
+  },
+  {
+    "id": "6f595e5475b772e5",
+    "type": "telegram bot",
+    "botname": "TinkoffBondBot",
+    "usernames": "",
+    "chatids": "",
+    "baseapiurl": "",
+    "testenvironment": false,
+    "updatemode": "polling",
+    "pollinterval": "1000",
+    "usesocks": false,
+    "sockshost": "",
+    "socksprotocol": "socks5",
+    "socksport": 6667,
+    "socksusername": "anonymous",
+    "sockspassword": "",
+    "bothost": "",
+    "botpath": "",
+    "localbothost": "0.0.0.0",
+    "localbotport": 8443,
+    "publicbotport": 8443,
+    "privatekey": "",
+    "certificate": "",
+    "useselfsignedcertificate": false,
+    "sslterminated": false,
+    "verboselogging": false
+  },
+  {
+    "id": "5f37e95021d64afc",
+    "type": "function",
+    "z": "38c010bd978ffb8e",
+    "name": "getChatId",
+    "func": "\nreturn {payload: msg.payload.chatId, topic: 'chatId'};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 420,
+    "y": 140,
+    "wires": [[]]
+  },
+  {
+    "id": "1c92178b11f3adaa",
+    "type": "function",
+    "z": "c2e93a95ad357f98",
+    "name": "function 1",
+    "func": "\nreturn {};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 340,
+    "y": 240,
+    "wires": [["330b2b05b0a9797b"]]
+  },
+  {
+    "id": "dc0342bede30420c",
+    "type": "json",
+    "z": "c2e93a95ad357f98",
+    "name": "",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 690,
+    "y": 240,
+    "wires": [["59bf345dfc31653c"]]
+  },
+  {
+    "id": "330b2b05b0a9797b",
+    "type": "file in",
+    "z": "c2e93a95ad357f98",
+    "name": "chatFile",
+    "filename": "/app/chats.json",
+    "filenameType": "str",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "none",
+    "allProps": false,
+    "x": 520,
+    "y": 240,
+    "wires": [["dc0342bede30420c"]]
+  },
+  {
+    "id": "99693ee3f62be2f1",
+    "type": "catch",
+    "z": "c2e93a95ad357f98",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 400,
+    "y": 320,
+    "wires": [["6ee705c1bcc0eaad"]]
+  },
+  {
+    "id": "59bf345dfc31653c",
+    "type": "function",
+    "z": "c2e93a95ad357f98",
+    "name": "createPayload",
+    "func": "\nreturn {payload: msg.payload, topic: 'chatIds'};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 880,
+    "y": 240,
+    "wires": [[]]
+  },
+  {
+    "id": "6ee705c1bcc0eaad",
+    "type": "function",
+    "z": "c2e93a95ad357f98",
+    "name": "function 3",
+    "func": "\nreturn {payload: [], topic: 'chatIds'};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 860,
+    "y": 320,
+    "wires": [[]]
+  },
+  {
+    "id": "f435a9b75d35c5ff",
+    "type": "json",
+    "z": "cac2a2fceee6d2c3",
+    "name": "",
+    "property": "payload",
+    "action": "str",
+    "pretty": false,
+    "x": 290,
+    "y": 140,
+    "wires": [["81f4636a51848867"]]
+  },
+  {
+    "id": "81f4636a51848867",
+    "type": "file",
+    "z": "cac2a2fceee6d2c3",
+    "name": "chatFile",
+    "filename": "/app/chats.json",
+    "filenameType": "str",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 480,
+    "y": 140,
+    "wires": [[]]
+  },
+  {
+    "id": "adab2edf41b174c4",
+    "type": "function",
+    "z": "33c57e12000df2b1",
+    "name": "callInstrumentService",
+    "func": "const client = global.get('InstrumentsServiceClient')\nconst metadata = global.get('TinkoffMetadata')\n\nasync function callGrpcService() {\n    const index = msg.parts ? `[${msg.parts.index}/${msg.parts.count}] `: ''\n    console.log(`${index}Start request [${msg.method}]`)\n    return new Promise((resolve, reject) => {\n        client[msg.method](msg.payload, metadata, (error, response) => {\n            if (error) {\n                node.error(`${msg.method} failed with error ${error}`)\n                reject(error);\n            } else {\n                resolve(response);\n            }\n        });\n    });\n}\n\nreturn callGrpcService()\n    .then(response => {\n        msg.payload = response;\n        return msg;\n    })\n    .catch(error => {\n        msg.payload = { error: error.message };\n        return msg;\n    });\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst grpc = global.get('grpc');\nconst protoLoader = global.get('proto-loader');\n\nif (global.get('InstrumentsServiceClient')) {\n    return\n}\n\nconst packageDefinition = protoLoader.loadSync('/app/contracts/instruments.proto', {\n    keepCase: true,\n    longs: String,\n    enums: String,\n    defaults: true,\n    oneofs: true\n});\n\nconst proto = grpc.loadPackageDefinition(packageDefinition).tinkoff.public.invest.api.contract.v1;\n\n// gRPC client setup\nconst client = new proto.InstrumentsService('invest-public-api.tinkoff.ru:443', grpc.credentials.createSsl());\n\nconst metadata = new grpc.Metadata();\nmetadata.add('authorization', 'Bearer ' + env.get(\"TINKOFF_TOKEN\") );\n\nglobal.set('InstrumentsServiceClient', client)\nglobal.set('TinkoffMetadata', metadata)",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 80,
+    "wires": [[]]
+  },
+  {
+    "id": "d0a23f9a277216a5",
+    "type": "function",
+    "z": "33c57e12000df2b1",
+    "name": "callMarketDataService",
+    "func": "const client = global.get('MarketDataServiceClient')\nconst metadata = global.get('TinkoffMetadata')\n\nasync function callGrpcService() {\n    const index = msg.parts ? `[${msg.parts.index}/${msg.parts.count}] `: ''\n    console.log(`${index}Start request [${msg.method}]`)\n    return new Promise((resolve, reject) => {\n        client[msg.method](msg.payload, metadata, (error, response) => {\n            if (error) {\n                node.error(`${msg.method} failed with error ${error}`)\n                reject(error);\n            } else {\n                resolve(response);\n            }\n        });\n    });\n}\n\nreturn callGrpcService()\n    .then(response => {\n        msg.payload = response;\n        return msg;\n    })\n    .catch(error => {\n        msg.payload = { error: error.message };\n        return msg;\n    });\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst grpc = global.get('grpc');\nconst protoLoader = global.get('proto-loader');\n\nif (global.get('MarketDataService')) {\n    return\n}\n\nconst packageDefinition = protoLoader.loadSync('/app/contracts/marketdata.proto', {\n    keepCase: true,\n    longs: String,\n    enums: String,\n    defaults: true,\n    oneofs: true\n});\n\nconst proto = grpc.loadPackageDefinition(packageDefinition).tinkoff.public.invest.api.contract.v1;\n\n// gRPC client setup\nconst client = new proto.MarketDataService('invest-public-api.tinkoff.ru:443', grpc.credentials.createSsl());\n\nconst metadata = new grpc.Metadata();\nmetadata.add('authorization', 'Bearer ' + env.get(\"TINKOFF_TOKEN\") );\n\nglobal.set('MarketDataServiceClient', client)\nglobal.set('TinkoffMetadata', metadata)",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 120,
+    "wires": [[]]
+  },
+  {
+    "id": "7f25ea349a57719a",
+    "type": "switch",
+    "z": "33c57e12000df2b1",
+    "name": "serviceCase",
+    "property": "service",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "InstrumentsService",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "MarketDataService",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 170,
+    "y": 100,
+    "wires": [["adab2edf41b174c4"], ["d0a23f9a277216a5"]]
+  },
+  {
+    "id": "7210b7a8cd2b17b0",
+    "type": "telegram command",
+    "z": "28606b22c900424b",
+    "name": "",
+    "command": "/start",
+    "description": "",
+    "registercommand": false,
+    "language": "",
+    "scope": "default",
+    "bot": "6f595e5475b772e5",
+    "strict": false,
+    "hasresponse": true,
+    "useregex": false,
+    "removeregexcommand": false,
+    "outputs": 2,
+    "x": 130,
+    "y": 340,
+    "wires": [["274ba46870f8361b", "a6cbe263d03e26cb"], []]
+  },
+  {
+    "id": "fca2cd1eac51c2dd",
+    "type": "telegram sender",
+    "z": "28606b22c900424b",
+    "name": "TinkoffBond",
+    "bot": "6f595e5475b772e5",
+    "haserroroutput": false,
+    "outputs": 1,
+    "x": 890,
+    "y": 340,
+    "wires": [["3e6ecf4b0e739425"]]
+  },
+  {
+    "id": "da6c42d57b0c4466",
+    "type": "function",
+    "z": "28606b22c900424b",
+    "name": "makeTgPayload",
+    "func": "const chatId = msg.payload.chatId;\nconst oldArray = msg.payload.chatIds;\nlet content = \"Вы начнете получать рассылку по облигациям.\"\n\nreturn {\n    payload: {\n            type: \"message\",\n            content,\n            chatId\n        }\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 680,
+    "y": 340,
+    "wires": [["fca2cd1eac51c2dd"]]
+  },
+  {
+    "id": "274ba46870f8361b",
+    "type": "subflow:38c010bd978ffb8e",
+    "z": "28606b22c900424b",
+    "name": "",
+    "x": 320,
+    "y": 340,
+    "wires": [["51b04e47473c50bb"]]
+  },
+  {
+    "id": "a6cbe263d03e26cb",
+    "type": "subflow:c2e93a95ad357f98",
+    "z": "28606b22c900424b",
+    "name": "",
+    "x": 320,
+    "y": 400,
+    "wires": [["51b04e47473c50bb"]]
+  },
+  {
+    "id": "51b04e47473c50bb",
+    "type": "join",
+    "z": "28606b22c900424b",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "useparts": false,
+    "accumulate": true,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 490,
+    "y": 340,
+    "wires": [["da6c42d57b0c4466", "b9e74455274ef47a"]]
+  },
+  {
+    "id": "b9e74455274ef47a",
+    "type": "function",
+    "z": "28606b22c900424b",
+    "name": "addNewChat",
+    "func": "const chatId = msg.payload.chatId;\nconst oldArray = msg.payload.chatIds;\n\nconsole.log(chatId, oldArray)\nif (oldArray.includes(chatId)) {\n    return {payload: oldArray, topic: \"chatIds\"};\n}\n\nreturn {payload: [...oldArray, chatId], topic: \"chatIds\"};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 670,
+    "y": 420,
+    "wires": [["cc9e39f1b5bad63e"]]
+  },
+  {
+    "id": "aa988f257ffe5d12",
+    "type": "subflow:cac2a2fceee6d2c3",
+    "z": "28606b22c900424b",
+    "name": "",
+    "x": 1270,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "cc9e39f1b5bad63e",
+    "type": "join",
+    "z": "28606b22c900424b",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "useparts": false,
+    "accumulate": false,
+    "timeout": "",
+    "count": "",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 890,
+    "y": 420,
+    "wires": [["36ecf8663d648f6f"]]
+  },
+  {
+    "id": "3e6ecf4b0e739425",
+    "type": "function",
+    "z": "28606b22c900424b",
+    "name": "function 2",
+    "func": "console.log('Telegram sent the message')\nreturn {complete: true};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1080,
+    "y": 340,
+    "wires": [["cc9e39f1b5bad63e"]]
+  },
+  {
+    "id": "36ecf8663d648f6f",
+    "type": "function",
+    "z": "28606b22c900424b",
+    "name": "chatIdsToPayload",
+    "func": "return {payload: msg.payload.chatIds};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1070,
+    "y": 420,
+    "wires": [["aa988f257ffe5d12"]]
+  },
+  {
+    "id": "4d8c1e8c62f66594",
+    "type": "telegram command",
+    "z": "a36acabe523d6275",
+    "name": "",
+    "command": "/stop",
+    "description": "",
+    "registercommand": false,
+    "language": "",
+    "scope": "default",
+    "bot": "6f595e5475b772e5",
+    "strict": false,
+    "hasresponse": true,
+    "useregex": false,
+    "removeregexcommand": false,
+    "outputs": 2,
+    "x": 90,
+    "y": 200,
+    "wires": [["4769fee43872ebac", "33e23232b1685030"], []]
+  },
+  {
+    "id": "86cf99070ec7dd83",
+    "type": "telegram sender",
+    "z": "a36acabe523d6275",
+    "name": "TinkoffBond",
+    "bot": "6f595e5475b772e5",
+    "haserroroutput": false,
+    "outputs": 1,
+    "x": 850,
+    "y": 200,
+    "wires": [["184eac412135c22b"]]
+  },
+  {
+    "id": "81f364c7a4109301",
+    "type": "function",
+    "z": "a36acabe523d6275",
+    "name": "makeTgPayload",
+    "func": "const chatId = msg.payload.chatId;\nlet content = \"Вы перестанете получать рассылку по облигациям.\"\n\nreturn {\n    payload: {\n            type: \"message\",\n            content,\n            chatId\n        }\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 640,
+    "y": 200,
+    "wires": [["86cf99070ec7dd83"]]
+  },
+  {
+    "id": "4769fee43872ebac",
+    "type": "subflow:38c010bd978ffb8e",
+    "z": "a36acabe523d6275",
+    "name": "",
+    "x": 280,
+    "y": 200,
+    "wires": [["f435a18d9fd60807"]]
+  },
+  {
+    "id": "33e23232b1685030",
+    "type": "subflow:c2e93a95ad357f98",
+    "z": "a36acabe523d6275",
+    "name": "",
+    "x": 280,
+    "y": 260,
+    "wires": [["f435a18d9fd60807"]]
+  },
+  {
+    "id": "f435a18d9fd60807",
+    "type": "join",
+    "z": "a36acabe523d6275",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "useparts": false,
+    "accumulate": true,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 450,
+    "y": 200,
+    "wires": [["81f364c7a4109301", "c2711ee87a6d385f"]]
+  },
+  {
+    "id": "c2711ee87a6d385f",
+    "type": "function",
+    "z": "a36acabe523d6275",
+    "name": "removeChat",
+    "func": "const chatId = msg.payload.chatId;\nconst oldArray = msg.payload.chatIds;\n\nreturn {payload: oldArray.filter((item) => item !== chatId), topic: \"chatIds\"};\n\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 630,
+    "y": 280,
+    "wires": [["03a21a523092095b"]]
+  },
+  {
+    "id": "11f0f375183d6815",
+    "type": "subflow:cac2a2fceee6d2c3",
+    "z": "a36acabe523d6275",
+    "name": "",
+    "x": 1270,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "03a21a523092095b",
+    "type": "join",
+    "z": "a36acabe523d6275",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "useparts": false,
+    "accumulate": false,
+    "timeout": "",
+    "count": "",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 850,
+    "y": 280,
+    "wires": [["3ec1e61488cc707c"]]
+  },
+  {
+    "id": "184eac412135c22b",
+    "type": "function",
+    "z": "a36acabe523d6275",
+    "name": "function 5",
+    "func": "console.log('Telegram sent the message')\nreturn {complete: true};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1040,
+    "y": 200,
+    "wires": [["03a21a523092095b"]]
+  },
+  {
+    "id": "3ec1e61488cc707c",
+    "type": "function",
+    "z": "a36acabe523d6275",
+    "name": "chatIdsToPayload",
+    "func": "return {payload: msg.payload.chatIds};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1050,
+    "y": 280,
+    "wires": [["11f0f375183d6815"]]
+  },
+  {
+    "id": "f66bdc62c8936781",
+    "type": "inject",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "43200",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 110,
+    "y": 80,
+    "wires": [["4ef1ed0a66bfe10e"]]
+  },
+  {
+    "id": "b9c1066356b59ba2",
+    "type": "function",
+    "z": "7143cba4a0672e07",
+    "name": "filterBonds",
+    "func": "const nonQualifiedInvestorsBonds = msg.payload.instruments.filter(\n    (item) => !item.for_qual_investor_flag && ! item.amortization_flag && !item.floating_coupon_flag\n);\nconsole.log('bonds filtered', nonQualifiedInvestorsBonds.length)\n\nreturn {payload: nonQualifiedInvestorsBonds};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 110,
+    "y": 160,
+    "wires": [["7bd38c822a4c9081", "a2ce32be7171fa9c", "ba2658375b3cbbe0"]]
+  },
+  {
+    "id": "4ef1ed0a66bfe10e",
+    "type": "function",
+    "z": "7143cba4a0672e07",
+    "name": "prepareBondRequest",
+    "func": "\nreturn {\n    payload: {\n        instrumentStatus: \"INSTRUMENT_STATUS_UNSPECIFIED\"\n    },\n    method: 'Bonds',\n    service: 'InstrumentsService'\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 360,
+    "y": 80,
+    "wires": [["d2839f31ed4cba51"]]
+  },
+  {
+    "id": "a2ce32be7171fa9c",
+    "type": "function",
+    "z": "7143cba4a0672e07",
+    "name": "prepareCouponsRequest",
+    "func": "// Function to convert JavaScript Date to gRPC Timestamp\nconst toGrpcTimestamp = (date) => {\n    return {\n        seconds: Math.floor(date.getTime() / 1000),\n        nanos: (date.getTime() % 1000) * 1e6\n    };\n};\n\n// Get today's date and +1 year\nconst today = new Date();\n\nconst figis = msg.payload.map((item) => {\n    return {\n        figi: item.figi,\n        topic: item.figi,\n        from: toGrpcTimestamp(today),\n        to: item.maturity_date\n    }\n})\n\nreturn {\n    service: 'InstrumentsService',\n    method: 'GetBondCoupons',\n    payload: figis\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 410,
+    "y": 240,
+    "wires": [["98b3014396261c41"]]
+  },
+  {
+    "id": "d2839f31ed4cba51",
+    "type": "subflow:33c57e12000df2b1",
+    "z": "7143cba4a0672e07",
+    "name": "getBonds",
+    "x": 580,
+    "y": 80,
+    "wires": [["b9c1066356b59ba2"]]
+  },
+  {
+    "id": "a738c6e30154fc39",
+    "type": "subflow:33c57e12000df2b1",
+    "z": "7143cba4a0672e07",
+    "name": "getCoupons",
+    "x": 370,
+    "y": 320,
+    "wires": [["656a978a46d56ec0"]]
+  },
+  {
+    "id": "74e7f7f57e6086f3",
+    "type": "function",
+    "z": "7143cba4a0672e07",
+    "name": "couponsPerBond",
+    "func": "const couponsPerBond = {}\n\nmsg.payload.forEach((item) => {\n    item.events?.forEach((event) => {\n        if (couponsPerBond[event.figi]) {\n            couponsPerBond[event.figi].push(event)\n        } else {\n            couponsPerBond[event.figi] = [event]\n        }\n    });\n});\n\nreturn {payload: couponsPerBond};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 320,
+    "wires": [["13aff816d2eb58d5"]]
+  },
+  {
+    "id": "98b3014396261c41",
+    "type": "split",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": "1",
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "property": "payload",
+    "x": 630,
+    "y": 240,
+    "wires": [["0b9a30487c42b9f3"]]
+  },
+  {
+    "id": "656a978a46d56ec0",
+    "type": "join",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "mode": "auto",
+    "build": "merged",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "useparts": true,
+    "accumulate": true,
+    "timeout": "",
+    "count": "",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 550,
+    "y": 320,
+    "wires": [["74e7f7f57e6086f3"]]
+  },
+  {
+    "id": "0b9a30487c42b9f3",
+    "type": "delay",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "pauseType": "rate",
+    "timeout": "5",
+    "timeoutUnits": "seconds",
+    "rate": "50",
+    "nbRateUnits": "1",
+    "rateUnits": "minute",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "allowrate": false,
+    "outputs": 1,
+    "x": 860,
+    "y": 240,
+    "wires": [["a738c6e30154fc39"]]
+  },
+  {
+    "id": "7bd38c822a4c9081",
+    "type": "json",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "property": "payload",
+    "action": "str",
+    "pretty": false,
+    "x": 410,
+    "y": 160,
+    "wires": [["b92410df66fa8383"]]
+  },
+  {
+    "id": "b92410df66fa8383",
+    "type": "file",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "filename": "/app/bonds.json",
+    "filenameType": "str",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 650,
+    "y": 160,
+    "wires": [[]]
+  },
+  {
+    "id": "13aff816d2eb58d5",
+    "type": "json",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "property": "payload",
+    "action": "str",
+    "pretty": false,
+    "x": 930,
+    "y": 320,
+    "wires": [["554154f4fd809416"]]
+  },
+  {
+    "id": "554154f4fd809416",
+    "type": "file",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "filename": "/app/coupons.json",
+    "filenameType": "str",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 1140,
+    "y": 320,
+    "wires": [[]]
+  },
+  {
+    "id": "d9cfda6f9ae0ade5",
+    "type": "json",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "property": "payload",
+    "action": "str",
+    "pretty": false,
+    "x": 970,
+    "y": 580,
+    "wires": [["d025dc4184c561bf"]]
+  },
+  {
+    "id": "d025dc4184c561bf",
+    "type": "file",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "filename": "/app/prices.json",
+    "filenameType": "str",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 1190,
+    "y": 580,
+    "wires": [[]]
+  },
+  {
+    "id": "1b9758a2e5afe9e2",
+    "type": "subflow:33c57e12000df2b1",
+    "z": "7143cba4a0672e07",
+    "name": "getPrices",
+    "x": 600,
+    "y": 580,
+    "wires": [["711e9a6415fbc34a"]]
+  },
+  {
+    "id": "ba2658375b3cbbe0",
+    "type": "function",
+    "z": "7143cba4a0672e07",
+    "name": "preparePricesRequest",
+    "func": "\nreturn {\n    service: 'MarketDataService',\n    method: 'GetLastPrices',\n    payload: {\n        instrument_id: msg.payload.map((item) => item.figi)\n    }\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 580,
+    "wires": [["1b9758a2e5afe9e2"]]
+  },
+  {
+    "id": "614df7cac23e946e",
+    "type": "inject",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "1800",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 110,
+    "y": 420,
+    "wires": [["2a7814fd85324c1a"]]
+  },
+  {
+    "id": "947253fe20e6e588",
+    "type": "file in",
+    "z": "7143cba4a0672e07",
+    "name": "getBonds",
+    "filename": "/app/bonds.json",
+    "filenameType": "str",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "none",
+    "allProps": false,
+    "x": 120,
+    "y": 580,
+    "wires": [["27a3187942435d08"]]
+  },
+  {
+    "id": "27a3187942435d08",
+    "type": "json",
+    "z": "7143cba4a0672e07",
+    "name": "",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 130,
+    "y": 660,
+    "wires": [["ba2658375b3cbbe0"]]
+  },
+  {
+    "id": "2a7814fd85324c1a",
+    "type": "function",
+    "z": "7143cba4a0672e07",
+    "name": "emptyMessage",
+    "func": "\nreturn {};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 120,
+    "y": 500,
+    "wires": [["947253fe20e6e588"]]
+  },
+  {
+    "id": "711e9a6415fbc34a",
+    "type": "function",
+    "z": "7143cba4a0672e07",
+    "name": "createPriceMap",
+    "func": "\nreturn { \n    payload: msg.payload.last_prices.reduce((acc, price) => {\n        if (acc[price.figi]) {\n            return acc\n        }\n        acc[price.figi] = price\n        return acc;\n    }, {})\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 800,
+    "y": 580,
+    "wires": [["d9cfda6f9ae0ade5"]]
+  },
+  {
+    "id": "8ba652c84c833d5d",
+    "type": "file in",
+    "z": "8c7b4935ee6b7e06",
+    "name": "getBonds",
+    "filename": "/app/bonds.json",
+    "filenameType": "str",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "none",
+    "allProps": false,
+    "x": 620,
+    "y": 280,
+    "wires": [["a8ef9878feeb15a4"]]
+  },
+  {
+    "id": "fc7c272166da474a",
+    "type": "function",
+    "z": "8c7b4935ee6b7e06",
+    "name": "emptyMessage",
+    "func": "\nreturn {};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 300,
+    "wires": [["8ba652c84c833d5d", "da844d190656edd6", "2e8d0607eb0bf0e4"]]
+  },
+  {
+    "id": "a8ef9878feeb15a4",
+    "type": "json",
+    "z": "8c7b4935ee6b7e06",
+    "name": "",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 810,
+    "y": 280,
+    "wires": [["dc167f7f9fd965cd"]]
+  },
+  {
+    "id": "da844d190656edd6",
+    "type": "file in",
+    "z": "8c7b4935ee6b7e06",
+    "name": "getCoupons",
+    "filename": "/app/coupons.json",
+    "filenameType": "str",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "none",
+    "allProps": false,
+    "x": 630,
+    "y": 320,
+    "wires": [["98ab8d1599e752da"]]
+  },
+  {
+    "id": "98ab8d1599e752da",
+    "type": "json",
+    "z": "8c7b4935ee6b7e06",
+    "name": "",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 810,
+    "y": 320,
+    "wires": [["10bc59bc928d628d"]]
+  },
+  {
+    "id": "4af3574f8cdf932e",
+    "type": "join",
+    "z": "8c7b4935ee6b7e06",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "useparts": false,
+    "accumulate": false,
+    "timeout": "",
+    "count": "4",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 1110,
+    "y": 320,
+    "wires": [["54fb24d319a28b43"]]
+  },
+  {
+    "id": "dc167f7f9fd965cd",
+    "type": "function",
+    "z": "8c7b4935ee6b7e06",
+    "name": "function 4",
+    "func": "console.log('bonds loaded ', msg.payload.length)\nreturn {\n    payload: msg.payload,\n    topic: 'bonds'\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 960,
+    "y": 280,
+    "wires": [["4af3574f8cdf932e"]]
+  },
+  {
+    "id": "10bc59bc928d628d",
+    "type": "function",
+    "z": "8c7b4935ee6b7e06",
+    "name": "function 6",
+    "func": "console.log('Coupons loaded')\nreturn {\n    payload: msg.payload,\n    topic: 'coupons'\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 960,
+    "y": 320,
+    "wires": [["4af3574f8cdf932e"]]
+  },
+  {
+    "id": "e8a699bb11480c89",
+    "type": "telegram sender",
+    "z": "8c7b4935ee6b7e06",
+    "name": "",
+    "bot": "6f595e5475b772e5",
+    "haserroroutput": false,
+    "outputs": 1,
+    "x": 850,
+    "y": 540,
+    "wires": [[]]
+  },
+  {
+    "id": "54fb24d319a28b43",
+    "type": "function",
+    "z": "8c7b4935ee6b7e06",
+    "name": "prepareTgMessage",
+    "func": "const bonds = msg.payload.bonds;\nconst coupons = msg.payload.coupons;\nconst prices = msg.payload.prices;\nconst chatId = msg.payload.chatId;\n\nfunction convertToNumber(int64) {\n    if (!int64) {\n        return 0\n    }\n    const { low, high, unsigned } = int64.units ?? int64.seconds;\n    const nano = int64.nano ?? int64.nanos\n\n    // Combine 32-bit low and high into a single number\n    let num = low + high * 2 ** 32;\n\n    // Handle signed numbers if needed\n    if (!unsigned && high & (1 << 31)) {\n        num -= 2 ** 64; // Convert to negative if high bit is set\n    }\n\n    // Add nano part if needed (assuming it's a fraction)\n    return num + nano * 1e-9;\n}\n\nfunction secondsToDays(seconds) {\n    return seconds / 86400;\n}\n\nconst getBondsProfit = (bond) => {\n    const nominal = convertToNumber(bond.nominal)\n    const currentPrice = convertToNumber(prices[bond.figi].price) / 100 * nominal;\n    const couponsPrice = (coupons[bond.figi] ?? []).reduce((acc, value) => {\n        return acc + convertToNumber(value.pay_one_bond);\n    }, 0)\n    const currentTimeInSeconds = Math.floor(Date.now() / 1000);\n    const days = secondsToDays(convertToNumber(bond.maturity_date) - currentTimeInSeconds);\n    if (days < 30 || currentPrice === 0) {\n        return 0\n    }\n    const profit = (nominal - currentPrice + couponsPrice - convertToNumber(bond.aci_value)) / currentPrice / (days / 365);\n    \n    return profit > 0.4 ? 0 : profit\n}\n\nconst getRiskLetter = (level) => {\n    switch(level) {\n        case 0:\n            return 'C';\n        case 1:\n            return 'A';\n        case 2: \n            return 'B';\n        default:\n            return 'C'\n    }\n}\n\nconst profits = bonds.map((item, index) => {\n    const currentTimeInSeconds = Math.floor(Date.now() / 1000);\n    return { \n        ...item,\n        profit: getBondsProfit(item),\n        risk: getRiskLetter(item.risk_level),\n        price: convertToNumber(prices[item.figi].price) / 100 * convertToNumber(item.nominal),\n        months: secondsToDays(convertToNumber(item.maturity_date) - currentTimeInSeconds) / 365 * 12\n    }\n}).sort((a, b) => b.profit - a.profit)\n.reduce((acc, bond) => {\n    if (!acc[bond.risk]) {\n        acc[bond.risk] = [];\n    }\n    acc[bond.risk].push(bond);\n    return acc;\n}, {'A': [], 'B': [], 'C': []});;\n\nconst currencySymbols = { rub: \"₽\", cny: \"¥\", usd: \"$\" };\n\nlet content = ''\nfor (const [risk, bonds] of Object.entries(profits)) {\n    // Add Markdown header and emoji for risk level\n    const riskIcon = risk === \"A\" ? \"🏆\" : risk === \"B\" ? \"🔶\" : \"🔴\";\n    content += `${riskIcon} Рейтинг: ${risk}\\n\\n`;\n    const filteredBonds = risk !== 'A' ? bonds.filter(item => item.months <= 12) : bonds\n    for (let i = 0; i < Math.min(10, filteredBonds.length); i++) {\n        const bond = filteredBonds[i]\n        const currencySymbol = currencySymbols[bond.currency] || \"\";\n        const price = Math.round(bond.price * 100) / 100\n        const profit = Math.round(bond.profit * 10000) / 100\n        const months = Math.round(bond.months)\n        const link = `https://www.tbank.ru/invest/bonds/${bond.ticker}/`\n        content += `**${i + 1}. [${bond.name}](${link})** - ${price} ${currencySymbol} - **\\`${profit}%\\`** - ${months}м\\n`;\n    }\n\n    content += \"\\n\"; \n}\n\ncontent = content\n  .replace(/\\~/g, '\\\\~')\n  .replace(/\\>/g, '\\\\>')\n  .replace(/\\#/g, '\\\\#')\n  .replace(/\\+/g, '\\\\+')\n  .replace(/\\-/g, '\\\\-')\n  .replace(/\\=/g, '\\\\=')\n  .replace(/\\|/g, '\\\\|')\n  .replace(/\\{/g, '\\\\{')\n  .replace(/\\}/g, '\\\\}')\n  .replace(/\\./g, '\\\\.')\n  .replace(/\\!/g, '\\\\!')\n\nreturn {\n    payload: {\n        type: \"message\",\n        content: content,\n        chatId: chatId,\n        options: { \n            parse_mode: \"MarkdownV2\",\n            disable_web_page_preview: true\n        }\n    }\n};\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 610,
+    "y": 540,
+    "wires": [["e8a699bb11480c89"]]
+  },
+  {
+    "id": "29c146818911fd31",
+    "type": "telegram command",
+    "z": "8c7b4935ee6b7e06",
+    "name": "",
+    "command": "/bonds",
+    "description": "",
+    "registercommand": false,
+    "language": "",
+    "scope": "default",
+    "bot": "6f595e5475b772e5",
+    "strict": false,
+    "hasresponse": true,
+    "useregex": false,
+    "removeregexcommand": false,
+    "outputs": 2,
+    "x": 190,
+    "y": 300,
+    "wires": [["fc7c272166da474a", "4bc988375c895188"], []]
+  },
+  {
+    "id": "4bc988375c895188",
+    "type": "subflow:38c010bd978ffb8e",
+    "z": "8c7b4935ee6b7e06",
+    "name": "",
+    "x": 980,
+    "y": 160,
+    "wires": [["4af3574f8cdf932e"]]
+  },
+  {
+    "id": "2e8d0607eb0bf0e4",
+    "type": "file in",
+    "z": "8c7b4935ee6b7e06",
+    "name": "getPrices",
+    "filename": "/app/prices.json",
+    "filenameType": "str",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "none",
+    "allProps": false,
+    "x": 620,
+    "y": 360,
+    "wires": [["ce3d8d09b429bfd2"]]
+  },
+  {
+    "id": "ce3d8d09b429bfd2",
+    "type": "json",
+    "z": "8c7b4935ee6b7e06",
+    "name": "",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 810,
+    "y": 360,
+    "wires": [["277d0f6fd291395f"]]
+  },
+  {
+    "id": "277d0f6fd291395f",
+    "type": "function",
+    "z": "8c7b4935ee6b7e06",
+    "name": "function 7",
+    "func": "console.log('Prices loaded')\nreturn {\n    payload: msg.payload,\n    topic: 'prices'\n};",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 960,
+    "y": 360,
+    "wires": [["4af3574f8cdf932e"]]
+  }
 ]
