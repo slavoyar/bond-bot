@@ -47,10 +47,9 @@ jobs:
             docker rm ${{ env.IMAGE_NAME }} || true
             docker run -d \
               --name ${{ env.IMAGE_NAME }} \
+              --restart=always \
               -p 1880:1880 \
               -e TINKOFF_TOKEN=${{ secrets.TINKOFF_TOKEN }} \
               -e TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} \
-              --restart=always \
-              -v /root/bondbot/:/app \
               ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
           EOF
